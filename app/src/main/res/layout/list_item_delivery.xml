@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp">
+
+
+        <TextView
+            android:id="@+id/id"
+            style="@style/ItemText.Headline"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Поставка №43" />
+
+        <TextView
+            android:id="@+id/productName"
+            style="@style/ItemText"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/id"
+            app:layout_constraintStart_toStartOf="@+id/id"
+            app:layout_constraintTop_toBottomOf="@+id/id"
+            tools:text="Футбольне мячи" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@color/grey"
+            app:layout_constraintBottom_toTopOf="@+id/productName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/id" />
+
+        <TextView
+            android:id="@+id/date"
+            style="@style/ItemText"
+            android:layout_marginTop="2dp"
+            app:layout_constraintEnd_toEndOf="@+id/supplierName"
+            app:layout_constraintTop_toBottomOf="@+id/supplierName"
+            tools:text="24.07.2021" />
+
+        <TextView
+            android:id="@+id/supplierName"
+            style="@style/ItemText"
+            android:layout_marginTop="2dp"
+            app:layout_constraintEnd_toEndOf="@+id/pricePerPiece"
+            app:layout_constraintTop_toBottomOf="@+id/pricePerPiece"
+            tools:text="Поставщик: ООО Привет" />
+
+        <TextView
+            android:id="@+id/number"
+            style="@style/ItemText"
+            android:layout_marginTop="2dp"
+            app:layout_constraintEnd_toEndOf="@+id/productName"
+            app:layout_constraintStart_toStartOf="@+id/productName"
+            app:layout_constraintTop_toBottomOf="@+id/productName"
+            tools:text="Количество: 43" />
+
+        <TextView
+            android:id="@+id/pricePerPiece"
+            style="@style/ItemText"
+            android:layout_marginTop="2dp"
+            app:layout_constraintEnd_toEndOf="@+id/number"
+            app:layout_constraintStart_toStartOf="@+id/number"
+            app:layout_constraintTop_toBottomOf="@+id/number"
+            tools:text="Цена за штуку: 77 руб" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

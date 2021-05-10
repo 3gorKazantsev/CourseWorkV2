@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp">
+
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/ItemText.Headline"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Навание товара" />
+
+        <TextView
+            android:id="@+id/rest"
+            style="@style/ItemText"
+            android:layout_marginTop="2dp"
+            app:layout_constraintEnd_toEndOf="@+id/id"
+            app:layout_constraintStart_toStartOf="@+id/id"
+            app:layout_constraintTop_toBottomOf="@+id/id"
+            tools:text="Остаток" />
+
+        <TextView
+            android:id="@+id/id"
+            style="@style/ItemText"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/name"
+            app:layout_constraintStart_toStartOf="@+id/name"
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            tools:text="ID продукта" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@color/grey"
+            app:layout_constraintBottom_toTopOf="@+id/id"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name" />
+
+        <TextView
+            android:id="@+id/inStock"
+            style="@style/ItemText"
+            android:textColor="@color/red"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/rest"
+            tools:text="В наличии: да" />
+
+        <TextView
+            android:id="@+id/discount"
+            style="@style/ItemText"
+            android:layout_marginTop="2dp"
+            android:gravity="end"
+            android:textColor="@color/red"
+            app:layout_constraintEnd_toEndOf="@+id/rest"
+            app:layout_constraintTop_toBottomOf="@+id/rest"
+            tools:text="Скидка 0%" />
+
+        <TextView
+            android:id="@+id/price"
+            style="@style/ItemText"
+            android:layout_marginTop="2dp"
+            android:gravity="end"
+            android:textColor="@color/red"
+            app:layout_constraintEnd_toEndOf="@+id/discount"
+            app:layout_constraintTop_toBottomOf="@+id/discount"
+            tools:text="Цена: 445" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

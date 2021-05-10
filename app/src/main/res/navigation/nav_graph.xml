@@ -7,7 +7,69 @@
 
     <fragment
         android:id="@+id/tablesFragment"
-        android:name="org.kazantsev.coursework.fragments.TableListFragment"
+        android:name="org.kazantsev.coursework.fragments.TablesFragment"
         android:label="fragment_tables"
-        tools:layout="@layout/fragment_table_list" />
+        tools:layout="@layout/fragment_tables" >
+        <action
+            android:id="@+id/action_tablesFragment_to_tableFragment"
+            app:destination="@id/tableFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tableFragment"
+        android:name="org.kazantsev.coursework.fragments.TableFragment"
+        android:label="fragment_table"
+        tools:layout="@layout/fragment_table" >
+        <argument
+            android:name="selectedTable"
+            app:argType="org.kazantsev.coursework.data.Table"
+            android:defaultValue="PRODUCTS_TABLE" />
+        <action
+            android:id="@+id/action_tableFragment_to_clientFragment"
+            app:destination="@id/clientFragment" />
+        <action
+            android:id="@+id/action_tableFragment_to_deliveryFragment"
+            app:destination="@id/deliveryFragment" />
+        <action
+            android:id="@+id/action_tableFragment_to_employeeFragment"
+            app:destination="@id/employeeFragment" />
+        <action
+            android:id="@+id/action_tableFragment_to_orderFragment"
+            app:destination="@id/orderFragment" />
+        <action
+            android:id="@+id/action_tableFragment_to_productFragment"
+            app:destination="@id/productFragment" />
+        <action
+            android:id="@+id/action_tableFragment_to_supplierFragment"
+            app:destination="@id/supplierFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/clientFragment"
+        android:name="org.kazantsev.coursework.fragments.ClientFragment"
+        android:label="fragment_client"
+        tools:layout="@layout/fragment_client" />
+    <fragment
+        android:id="@+id/deliveryFragment"
+        android:name="org.kazantsev.coursework.fragments.DeliveryFragment"
+        android:label="fragment_delivery"
+        tools:layout="@layout/fragment_delivery" />
+    <fragment
+        android:id="@+id/employeeFragment"
+        android:name="org.kazantsev.coursework.fragments.EmployeeFragment"
+        android:label="fragment_employee"
+        tools:layout="@layout/fragment_employee" />
+    <fragment
+        android:id="@+id/orderFragment"
+        android:name="org.kazantsev.coursework.fragments.OrderFragment"
+        android:label="fragment_order"
+        tools:layout="@layout/fragment_order" />
+    <fragment
+        android:id="@+id/productFragment"
+        android:name="org.kazantsev.coursework.fragments.ProductFragment"
+        android:label="fragment_product"
+        tools:layout="@layout/fragment_product" />
+    <fragment
+        android:id="@+id/supplierFragment"
+        android:name="org.kazantsev.coursework.fragments.SupplierFragment"
+        android:label="fragment_supplier"
+        tools:layout="@layout/fragment_supplier" />
 </navigation>

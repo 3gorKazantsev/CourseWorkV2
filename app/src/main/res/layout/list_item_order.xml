@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp">
+
+
+        <TextView
+            android:id="@+id/id"
+            style="@style/ItemText.Headline"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Заказ №43" />
+
+        <TextView
+            android:id="@+id/employeeName"
+            style="@style/ItemText"
+            android:layout_marginTop="2dp"
+            app:layout_constraintEnd_toEndOf="@+id/productName"
+            app:layout_constraintStart_toStartOf="@+id/productName"
+            app:layout_constraintTop_toBottomOf="@+id/productName"
+            tools:text="ФИО работника" />
+
+        <TextView
+            android:id="@+id/productName"
+            style="@style/ItemText"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/id"
+            app:layout_constraintStart_toStartOf="@+id/id"
+            app:layout_constraintTop_toBottomOf="@+id/id"
+            tools:text="Название продукта" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@color/grey"
+            app:layout_constraintBottom_toTopOf="@+id/productName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/id" />
+
+        <TextView
+            android:id="@+id/state"
+            style="@style/ItemText"
+            android:textColor="@color/red"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/clientName"
+            tools:text="Состояние: выполнено" />
+
+        <TextView
+            android:id="@+id/number"
+            style="@style/ItemText"
+            android:layout_marginTop="2dp"
+            android:gravity="end"
+            android:textColor="@color/red"
+            app:layout_constraintEnd_toEndOf="@+id/clientName"
+            app:layout_constraintTop_toBottomOf="@+id/clientName"
+            tools:text="Кол-во: 7" />
+
+        <TextView
+            android:id="@+id/price"
+            style="@style/ItemText"
+            android:layout_marginTop="2dp"
+            android:gravity="end"
+            android:textColor="@color/red"
+            app:layout_constraintEnd_toEndOf="@+id/number"
+            app:layout_constraintTop_toBottomOf="@+id/number"
+            tools:text="Цена: 445" />
+
+        <TextView
+            android:id="@+id/clientName"
+            style="@style/ItemText"
+            android:layout_marginTop="2dp"
+            app:layout_constraintEnd_toEndOf="@+id/employeeName"
+            app:layout_constraintStart_toStartOf="@+id/employeeName"
+            app:layout_constraintTop_toBottomOf="@+id/employeeName"
+            tools:text="Название орг. клиента" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
