@@ -66,4 +66,5 @@ dependencies {
     // Room
     implementation "androidx.room:room-runtime:$project.room_version"
     kapt "androidx.room:room-compiler:$project.room_version"
+    implementation "androidx.room:room-ktx:$project.room_version"
 }

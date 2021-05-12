@@ -6,16 +6,31 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import org.kazantsev.coursework.R
+import org.kazantsev.coursework.databinding.FragmentClientBinding
 
 class ClientFragment : Fragment() {
 
+    // View Binding
+    private var _binding: FragmentClientBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
+        // init ViewBinding
+        _binding = FragmentClientBinding.inflate(inflater, container, false)
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_client, container, false)
+        val view = binding.root
+
+
 
         return view
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
