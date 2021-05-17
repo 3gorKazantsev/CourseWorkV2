@@ -28,7 +28,7 @@ class ClientAdapter(
             // onClick listener
             item.setOnClickListener {
                 // navigate to ClientFragment
-                val action = TableFragmentDirections.actionTableFragmentToClientFragment()
+                val action = TableFragmentDirections.actionTableFragmentToClientFragment(client.id)
                 item.findNavController().navigate(action)
             }
         }

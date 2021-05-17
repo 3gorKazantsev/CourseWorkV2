@@ -16,6 +16,9 @@ interface ClientDao {
     @Query("SELECT * FROM clients_table")
     fun getAllClients(): LiveData<List<Client>>
 
+    @Query("SELECT * FROM clients_table WHERE id=:id")
+    fun getClient(id: Int): LiveData<Client?>
+
     @Delete
     suspend fun deleteClient(client: Client)
 }

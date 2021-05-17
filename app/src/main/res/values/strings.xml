@@ -40,4 +40,6 @@
     <string name="hint_discount">Скидка</string>
     <string name="hint_in_stock">В наличии</string>
     <string name="hint_supplier_name">Название организации поставщика</string>
+    <string name="add">add_fab</string>
+    <string name="done">done_fab</string>
 </resources>

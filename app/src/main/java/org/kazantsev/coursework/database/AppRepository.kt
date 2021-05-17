@@ -13,8 +13,12 @@ class AppRepository() {
     // update
     suspend fun updateClient(client: Client) = clientDao.updateClient(client)
 
-    // get all clients
+    // get all
     fun getAllClients() = clientDao.getAllClients()
 
+    // get one
+    fun getClient(id: Int) = clientDao.getClient(id)
+
+    // delete one
     suspend fun deleteClient(client: Client) = clientDao.deleteClient(client)
 }

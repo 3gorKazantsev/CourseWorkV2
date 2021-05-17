@@ -93,7 +93,7 @@ class TableFragment : Fragment() {
     // navigate to the detail fragment for create a new record in the database function
     private fun navigateToNewRecordFragment() {
         val action = when (args.selectedTable) {
-            Table.CLIENTS_TABLE -> TableFragmentDirections.actionTableFragmentToClientFragment()
+            Table.CLIENTS_TABLE -> TableFragmentDirections.actionTableFragmentToClientFragment(0)
             Table.DELIVERIES_TABLE -> TableFragmentDirections.actionTableFragmentToDeliveryFragment()
             Table.EMPLOYEES_TABLE -> TableFragmentDirections.actionTableFragmentToEmployeeFragment()
             Table.ORDERS_TABLE -> TableFragmentDirections.actionTableFragmentToOrderFragment()
