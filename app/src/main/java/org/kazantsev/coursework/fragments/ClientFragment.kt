@@ -1,14 +1,14 @@
 package org.kazantsev.coursework.fragments
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import org.kazantsev.coursework.R
 import org.kazantsev.coursework.data.Client
 import org.kazantsev.coursework.databinding.FragmentClientBinding
 import org.kazantsev.coursework.viewmodels.ClientViewModel
@@ -42,24 +42,22 @@ class ClientFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // init ViewBinding
+        // attach ViewBinding
         _binding = FragmentClientBinding.inflate(inflater, container, false)
+
         // Inflate the layout for this fragment
         val view = binding.root
 
-        // FAB click listener
-        binding.fab.setOnClickListener {
-            if (args.id == 0)
-                viewModel.insertClient(client)
-            else
-                viewModel.updateClient(client)
+        // set imeOptions for the edit texts
+        setImeOptions()
 
-            findNavController().navigateUp()
-        }
+        // enable app bar menu
+        setHasOptionsMenu(true)
 
         return view
     }
 
+    // observers
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -72,21 +70,49 @@ class ClientFragment : Fragment() {
         }
     }
 
+    // detach ViewBinding
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
 
+    // inflate app bar menu
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.detail_menu, menu)
+    }
+
+    // on menu item selected
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.menuDelete -> viewModel.deleteClient(client)
+        }
+
+        findNavController().popBackStack()
+
+        return super.onOptionsItemSelected(item)
+    }
+
+    // listeners
     override fun onStart() {
         super.onStart()
 
-        // listeners
+        // EditText listeners
         binding.apply {
             name.doAfterTextChanged { client.name = it.toString() }
             inn.doAfterTextChanged { client.inn = it.toString() }
             addr.doAfterTextChanged { client.addr = it.toString() }
             phone.doAfterTextChanged { client.phone = it.toString() }
             email.doAfterTextChanged { client.email = it.toString() }
+        }
+
+        // FAB click listener
+        binding.fab.setOnClickListener {
+            if (args.id == 0)
+                viewModel.insertClient(client)
+            else
+                viewModel.updateClient(client)
+
+            findNavController().navigateUp()
         }
     }
 
@@ -98,4 +124,19 @@ class ClientFragment : Fragment() {
         binding.phone.setText(client.phone)
         binding.email.setText(client.email)
     }
+
+    // if it is not a creating a new client then set the imeOptions to DONE
+    private fun setImeOptions() {
+        if (args.id != 0) {
+            val opt = EditorInfo.IME_ACTION_DONE
+            binding.apply {
+                name.imeOptions = opt
+                inn.imeOptions = opt
+                addr.imeOptions = opt
+                phone.imeOptions = opt
+                email.imeOptions = opt
+            }
+        }
+    }
+
 }

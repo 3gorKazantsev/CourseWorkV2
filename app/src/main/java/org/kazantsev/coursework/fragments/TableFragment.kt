@@ -35,25 +35,23 @@ class TableFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // init View Binding
+        // attach View Binding
         _binding = FragmentTableBinding.inflate(inflater, container, false)
+
         // inflate the layout for this fragment
         val view = binding.root
 
         // setting RecyclerView
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
         viewModel.allClients.value?.let { setAdapter(args.selectedTable, it) }
+
         // hide the FAB on scroll down
         hideFabOnScrollDown()
-
-        // FAB click listener
-        binding.fab.setOnClickListener {
-            navigateToNewRecordFragment()
-        }
 
         return view
     }
 
+    // observers
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -63,6 +61,17 @@ class TableFragment : Fragment() {
         }
     }
 
+    // listeners
+    override fun onStart() {
+        super.onStart()
+
+        // FAB click listener
+        binding.fab.setOnClickListener {
+            navigateToNewRecordFragment()
+        }
+    }
+
+    // detach ViewBinding
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

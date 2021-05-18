@@ -42,4 +42,6 @@
     <string name="hint_supplier_name">Название организации поставщика</string>
     <string name="add">add_fab</string>
     <string name="done">done_fab</string>
+    <string name="delete">Удалить</string>
+    <string name="save">Сохранить</string>
 </resources>

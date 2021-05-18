@@ -34,4 +34,10 @@ class ClientViewModel : ViewModel() {
             repository.insertClient(client)
         }
     }
+
+    fun deleteClient(client: Client) {
+        viewModelScope.launch {
+            repository.deleteClient(client)
+        }
+    }
 }
