@@ -23,9 +23,15 @@ class ClientViewModel : ViewModel() {
         clientId.value = id
     }
 
-    fun saveClient(client: Client) {
+    fun updateClient(client: Client) {
         viewModelScope.launch {
             repository.updateClient(client)
+        }
+    }
+
+    fun insertClient(client: Client) {
+        viewModelScope.launch {
+            repository.insertClient(client)
         }
     }
 }

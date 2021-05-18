@@ -9,7 +9,6 @@ import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import org.kazantsev.coursework.R
 import org.kazantsev.coursework.data.Client
 import org.kazantsev.coursework.databinding.FragmentClientBinding
 import org.kazantsev.coursework.viewmodels.ClientViewModel
@@ -50,7 +49,11 @@ class ClientFragment : Fragment() {
 
         // FAB click listener
         binding.fab.setOnClickListener {
-            viewModel.saveClient(client)
+            if (args.id == 0)
+                viewModel.insertClient(client)
+            else
+                viewModel.updateClient(client)
+
             findNavController().navigateUp()
         }
 

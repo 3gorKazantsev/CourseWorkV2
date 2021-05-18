@@ -12,11 +12,6 @@ class TableViewModel : ViewModel() {
     // repository
     private val repository: AppRepository = AppRepository()
 
+    // all clients for RecyclerView
     val allClients: LiveData<List<Client>> = repository.getAllClients()
-
-    fun insertClient(client: Client) {
-        viewModelScope.launch(Dispatchers.IO) {
-            repository.insertClient(client)
-        }
-    }
 }
